@@ -21,6 +21,8 @@
     "vite": "^5.0.0"
   },
   "dependencies": {
+    "@testing-library/jest-dom": "^6.4.6",
+    "@testing-library/react": "^16.0.0",
     "antd": "^5.19.1",
     "react-router-dom": "^6.24.1"
   }
