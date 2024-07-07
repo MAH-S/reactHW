@@ -1,4 +1,4 @@
-name: React CI/CD
+name: Vite CI/CD
 
 on:
   push:
@@ -13,27 +13,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '16' # specify your node version
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16' # Specify your Node.js version
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: Run tests
-      run: npm test
+      - name: Build project
+        run: npm run build
 
-    - name: Build project
-      run: npm run build
-
-    - name: Deploy to GitHub Pages
-      if: github.ref == 'refs/heads/main'
-      run: |
-        git config --global user.name 'github-actions[bot]'
-        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        npm install -g gh-pages
-        npm run deploy
+      - name: Preview project
+        run: npm run preview
